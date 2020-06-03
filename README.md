@@ -4,7 +4,7 @@ This document explains how to access [INSPIRE](https://inspirehep.net) metadata 
 
 ## Questions
 
-If you have any issues using the API or would like some help, please open an issue or [send us an email](mailto:feedback@inspirehep.net).
+If you have any issues using the API or would like some help, please open [an issue](https://github.com/inspirehep/rest-api-doc/issues) or [send us an email](mailto:feedback@inspirehep.net).
 
 ## API Overview
 
@@ -149,7 +149,7 @@ https://inspirehep.net/api/seminars?size=5&page=2&start_date=upcoming
 
 The response for a search is a JSON object with the following keys:
 
-* `hits`: contains the total number of results in `total` and the records in `hits` (which is an array whose elements have the same structure as in the single-record response)
+* `hits`: contains the total number of results in `total` and the records in `hits` (which is an array whose elements have the same structure as in the [single-record response](#single-record-response))
 * `links`: links to related resources, such as alternative serializations of the search results and the next page in `next`.
 
 ### Search query
