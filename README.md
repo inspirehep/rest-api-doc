@@ -8,7 +8,7 @@ If you have any issues using the API or would like some help, please open [an is
 
 ## API Overview
 
-The API tends to be RESTFUL and returns results in JSON by default.
+The API tends to be RESTful and returns results in JSON by default.
 This means for example that it will return a 404 HTTP status code if a record can't be found.
 
 In general, any page you get through the website has a corresponding representation in the API obtained by prefixing its URL with `/api/`.
@@ -69,7 +69,7 @@ The following external identifiers can be used:
 |`{identifier-type}`|`{identifier-value}` (examples)|Usage|
 |---|---|---|
 |`doi`|`10.1103/PhysRevLett.19.1264`|to get a literature record given a [DOI](https://www.doi.org)|
-|'arxiv'|`1207.7214`, `hep-ph/0603175`|to get a literature record given an [arXiv](https://arxiv.org) identifier|
+|`arxiv`|`1207.7214`, `hep-ph/0603175`|to get a literature record given an [arXiv](https://arxiv.org) identifier|
 |`orcid`|`0000-0003-3897-046X`|to get an author record given an [ORCID](https://orcid.org) iD|
 
 ## Single-record response
