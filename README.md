@@ -8,22 +8,24 @@ If you have any issues using the API or would like some help, please open [an is
 
 ## API Overview
 
-The API tends to be RESTful and returns results in JSON by default.
+The API is generally RESTful and returns results in JSON by default.
 This means for example that it will return a 404 HTTP status code if a record can't be found.
 
-In general, any page you get through the website has a corresponding representation in the API obtained by prefixing its URL with `/api/`.
+In general, most pages you get through the website have a corresponding representation in the API obtained by prefixing the path component of the URL with `/api/`.
 For example, the data displayed at
 ```
-https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=title%20api
+https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=title api
 ```
 is available through the API at
 ```
-https://inspirehep.net/api/literature?sort=mostrecent&size=25&page=1&q=title%20api
+https://inspirehep.net/api/literature?sort=mostrecent&size=25&page=1&q=title api
 ```
+
+Currently only read-only operations are allowed and they all use the `GET` HTTP method.
 
 ## Rate limiting
 
-In order to avoid overwhelming the server, we enforce rate limits per IP address: every IP address is allowed 50 requests, then at most 2 requests per second. If you exceed those limits, you will receive a response with HTTP status code 429.
+In order to avoid overwhelming the server, we enforce rate limits per IP address: every IP address is allowed 50 requests, then at most 2 requests per second. If you exceed those limits, you will receive a response with HTTP status code 429 and a `x-retry-in` header telling you how long to wait before retrying.
 
 ## Obtaining a record
 
@@ -32,7 +34,7 @@ To get the metadata in a single record, use the following type of URL:
 https://inspirehep.net/api/{identifier-type}/{identifier-value}
 ```
 
-Two main categories of identifiers are supported.
+Two main categories of record identifiers are supported.
 
 ### Internal identifiers
 
@@ -86,7 +88,7 @@ By default, the API response when retrieving a single record will be in the JSON
 
 ### Links
 
-The `links` object contains links to metadata related to this record but not directly included in the record (e.g. citation information), and alternative serialization formats (e.g. BibTeX).
+The `links` object contains links to metadata related to this record but not directly included in the record (e.g. citation information), and [alternative serialization formats](#changing-formats) (e.g. BibTeX).
 
 ### Metadata
 
@@ -97,7 +99,7 @@ The `metadata` object contains the metadata of the record proper. All records ha
 It is possible to obtain a representation of a record (or several records) in a different format from the default JSON. This can be done in two alternative ways:
 
 * using the `format={format-name}` URL query string ([example](https://inspirehep.net/api/literature/4328?format=bibtex)), or
-* setting the `Accept` [HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept) to a specific MIME type.
+* through [content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation), by setting the `Accept` [HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept) to a specific MIME type.
 
 Currently, the following formats are supported (only for `Literature` records):
 
@@ -160,7 +162,7 @@ The `q` query string argument allows to specify a search query that only matches
 
   For example, to find all papers having an abstract from Springer, the following search can be used:
 ```
-https://inspirehep.net/api/literature?q=abstracts.source%3ASpringer
+https://inspirehep.net/api/literature?q=abstracts.source:Springer
 ```
 * For other types of records, the [ElasticSearch query string](https://www.elastic.co/guide/en/elasticsearch/reference/7.1/query-dsl-query-string-query.html#query-string-syntax) syntax is used.
 
@@ -192,7 +194,7 @@ This behavior can be overridden with the `sort={sort-order}` query parameter. Th
 
 For example, the following URL will return Edward Witten's 10 most cited papers:
 ```
-https://inspirehep.net/api/literature?sort=mostcited&size=10&q=a%20E.Witten.1
+https://inspirehep.net/api/literature?sort=mostcited&size=10&q=a E.Witten.1
 ```
 
 ### Pagination
@@ -202,7 +204,7 @@ To get to the next pages, you can pass the page number to the `page` query param
 
 For example, use the following URL to get Edward Witten's 31st to 40th most cited papers.
 ```
-https://inspirehep.net/api/literature?sort=mostcited&page=3&q=a%20E.Witten.1
+https://inspirehep.net/api/literature?sort=mostcited&page=3&q=a E.Witten.1
 ```
 
 To go the next page, the `next` URL of the `links` object in the response can be followed (when using the default JSON format).
@@ -211,5 +213,5 @@ The number of results per page can be overriden with the `size` query parameter.
 
 For example, to get the 50 most cited papers of Edward Witten at once, the following URL can be used:
 ```
-https://inspirehep.net/api/literature?sort=mostcited&size=50&q=a%20E.Witten.1
+https://inspirehep.net/api/literature?sort=mostcited&size=50&q=a E.Witten.1
 ```
