@@ -34,17 +34,14 @@ To get the metadata in a single record, use the following type of URL:
 https://inspirehep.net/api/{identifier-type}/{identifier-value}
 ```
 
-Two main categories of record identifiers are supported.
+Two main categories of record identifiers (that is pairs of `{identifier-type}` and `{identifier-value}`) are supported.
 
 ### Internal identifiers
 
-These are the same identifiers as appear in the URLs on the website. The `{identifier-type}` can take the following values:
+These are the same identifiers as appear in the URLs on the website and can also be used for [searching](#searching). The `{identifier-type}` can take the following values:
 
 * `literature`
-* `arxiv`
-* `doi`
 * `authors`
-* `orcid`
 * `conferences`
 * `seminars`
 * `journals`
@@ -131,6 +128,8 @@ The `{record-type}` must be one of:
 * `experiments`
 * `data`
 
+Note that these are the same as the [internal identifier types](#internal-identifiers).
+
 The `{query-string}` may contain several `{parameter}={value}` pairs separated by `&`. The following `{parameter}`s are always supported:
 
 |`{parameter}`|Description of `{value}`|
@@ -146,24 +145,30 @@ For example, to obtain the 6th to 10th upcoming conferences, the following URL c
 ```
 https://inspirehep.net/api/seminars?size=5&page=2&start_date=upcoming
 ```
-
-### Search response
-
-The response for a search is a JSON object with the following keys:
-
-* `hits`: contains the total number of results in `total` and the records in `hits` (which is an array whose elements have the same structure as in the [single-record response](#single-record-response))
-* `links`: links to related resources, such as alternative serializations of the search results and the next page in `next`.
+To obtain the 10 most recent papers cited at least 1000 times, use:
+```
+https://inspirehep.net/literature?sort=mostrecent&size=10&q=topcite 1000+
+```
 
 ### Search query
 
 The `q` query string argument allows to specify a search query that only matches a subset of records.
 
-* For Literature records (obtained through the `/api/literature` endpoint), a custom search syntax is used for backwards compatibility with SPIRES and the old INSPIRE. It is explained [here](https://inspirehep.net/help/knowledge-base/inspire-paper-search/). Besides, any field of the record metadata can be searched using its path.
+* For Literature records (obtained through the `/api/literature` endpoint), a custom search syntax is used for backwards compatibility with SPIRES and the old INSPIRE. It is explained [here](https://inspirehep.net/help/knowledge-base/inspire-paper-search/). Besides, any field of the record metadata can be searched using its path given by concatenating the nested keys with `.`, followed by a `:` and the value to search for.
 
   For example, to find all papers having an abstract from Springer, the following search can be used:
 ```
 https://inspirehep.net/api/literature?q=abstracts.source:Springer
 ```
+  To find all conferences papers citing Edward Witten, you can use:
+```
+https://inspirehep.net/api/literature?q=tc conference paper and refersto a E.Witten.1
+```
+  To check whether a field exists, you can use a `*` wildcard. For example, to find all papers having a DOI, you can use:
+```
+https://inspirehep.net/api/literature?q=dois.value:*
+```
+
 * For other types of records, the [ElasticSearch query string](https://www.elastic.co/guide/en/elasticsearch/reference/7.1/query-dsl-query-string-query.html#query-string-syntax) syntax is used.
 
   For example, to find all experiments using the CERN Proton-Synchotron (PS) accelerator, use
@@ -215,3 +220,11 @@ For example, to get the 50 most cited papers of Edward Witten at once, the follo
 ```
 https://inspirehep.net/api/literature?sort=mostcited&size=50&q=a E.Witten.1
 ```
+
+### Search response
+
+The response for a search is a JSON object with the following keys:
+
+* `hits`: contains the total number of results in `total` and the records in `hits` (which is an array whose elements have the same structure as in the [single-record response](#single-record-response))
+* `links`: links to related resources, such as alternative serializations of the search results and the next page in `next`.
+
