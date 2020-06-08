@@ -49,7 +49,7 @@ These are the same identifiers as appear in the URLs on the website and can also
 * `experiments`
 * `data`
 
-and the `{identifier-value}` is a number identifying the given record in the INSPIRE database. For example,
+and the `{identifier-value}` is a number identifying the given record in the INSPIRE database (also called record ID or `recid`). For example,
 ```
 https://inspirehep.net/api/literature/451647
 ```
@@ -95,7 +95,7 @@ The `metadata` object contains the metadata of the record proper. All records ha
 
 It is possible to obtain a representation of a record (or several records) in a different format from the default JSON. This can be done in two alternative ways:
 
-* using the `format={format-name}` URL query string ([example](https://inspirehep.net/api/literature/4328?format=bibtex)), or
+* using the `format={format-name}` URL query string, or
 * through [content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation), by setting the `Accept` [HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept) to a specific MIME type.
 
 Currently, the following formats are supported (only for `Literature` records):
@@ -108,6 +108,15 @@ Currently, the following formats are supported (only for `Literature` records):
 |latex-us|application/vnd+inspire.latex.us+x-latex|The LaTeX (US) citation format|
 
 Links to alternative formats can also be found in the `links` object inside the JSON response.
+
+For example, to obtain [Glashow's famous paper on weak interactions](https://inspirehep.net/literature/4328) in BibTeX format, use either a format parameter:
+```
+https://inspirehep.net/api/literature/4328?format=bibtex
+```
+or equivalently, content negotiation (the example uses the [`curl`](https://curl.haxx.se/) command line tool to set the header):
+```
+curl -H "Accept: application/x-bibtex" https://inspirehep.net/api/literature/4328
+```
 
 ## Searching
 
@@ -130,7 +139,7 @@ The `{record-type}` must be one of:
 
 Note that these are the same as the [internal identifier types](#internal-identifiers).
 
-The `{query-string}` may contain several `{parameter}={value}` pairs separated by `&`. The following `{parameter}`s are always supported:
+The `{query-string}` may contain several `{parameter}={value}` pairs separated by `&`. The following parameters are always supported:
 
 |`{parameter}`|Description of `{value}`|
 |---|---|
@@ -139,7 +148,7 @@ The `{query-string}` may contain several `{parameter}={value}` pairs separated b
 |`size`|The number of results returned per page|
 |`page`|The page number|
 
-Besides, depending on the `{record-type}`, different facet filters are available to restrict the set of results. They work exactly the same way as on the website.
+Additionally, depending on the `{record-type}`, different facet filters are available to restrict the set of results. They work exactly the same way as on the website.
 
 For example, to obtain the 6th to 10th upcoming conferences, the following URL can be used:
 ```
@@ -154,7 +163,7 @@ https://inspirehep.net/literature?sort=mostrecent&size=10&q=topcite 1000+
 
 The `q` query string argument allows to specify a search query that only matches a subset of records.
 
-* For Literature records (obtained through the `/api/literature` endpoint), a custom search syntax is used for backwards compatibility with SPIRES and the old INSPIRE. It is explained [here](https://inspirehep.net/help/knowledge-base/inspire-paper-search/). Besides, any field of the record metadata can be searched using its path given by concatenating the nested keys with `.`, followed by a `:` and the value to search for.
+* For Literature records (obtained through the `/api/literature` endpoint), a custom search syntax is used for backwards compatibility with SPIRES and the old INSPIRE. It is explained [here](https://inspirehep.net/help/knowledge-base/inspire-paper-search/). Additionally, any field of the record metadata can be searched using its path given by concatenating the nested keys with `.`, followed by a `:` and the value to search for.
 
   For example, to find all papers having an abstract from Springer, the following search can be used:
 ```
@@ -193,9 +202,9 @@ This behavior can be overridden with the `sort={sort-order}` query parameter. Th
 |`jobs`|`mostrecent`|Most recently created jobs appear first|
 |`jobs`|`deadline`|Jobs with the earliest deadline appear first|
 |`conferences`|`dateasc`|Conferences with the earliest starting date appear first|
-|`conferences`|`datedesc`|Conferences with the latest starting date appear first|
+|`conferences`|`datedesc`|Conferences with the most recent starting date appear first|
 |`seminars`|`dateasc`|Seminars with the earliest starting time appear first|
-|`seminars`|`datedesc`|Seminars with the latest starting time appear first|
+|`seminars`|`datedesc`|Seminars with the most recent starting time appear first|
 
 For example, the following URL will return Edward Witten's 10 most cited papers:
 ```
