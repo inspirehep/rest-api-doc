@@ -223,7 +223,7 @@ https://inspirehep.net/api/literature?sort=mostcited&page=3&q=a E.Witten.1
 
 To go the next page, the `next` URL of the `links` object in the response can be followed (when using the default JSON format).
 
-The number of results per page can be overriden with the `size` query parameter. In order not to overload the server, the maximum allowed value is `500`, and you'll get a response with HTTP status code 400 if you exceed it.
+The number of results per page can be overriden with the `size` query parameter. In order not to overload the server, the maximum allowed value is `1000`, and you'll get a response with HTTP status code 400 if you exceed it.
 
 For example, to get the 50 most cited papers of Edward Witten at once, the following URL can be used:
 ```
