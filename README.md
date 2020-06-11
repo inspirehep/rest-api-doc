@@ -2,9 +2,9 @@
 
 This document explains how to access [INSPIRE](https://inspirehep.net) metadata programmatically through a REST API.
 
-## Questions
+## Questions & comments
 
-If you have any issues using the API or would like some help, please open [an issue](https://github.com/inspirehep/rest-api-doc/issues) or [send us an email](mailto:feedback@inspirehep.net).
+If you have any issues using the API, would like some help, or have some suggestions for improving the API or its documentation, please open [an issue](https://github.com/inspirehep/rest-api-doc/issues) or [send us an email](mailto:feedback@inspirehep.net).
 
 ## API Overview
 
@@ -22,6 +22,8 @@ https://inspirehep.net/api/literature?sort=mostrecent&size=25&page=1&q=title api
 ```
 
 Currently only read-only operations are allowed and they all use the `GET` HTTP method.
+
+Note that all examples are displayed in a human-readable way, but the query parameters often need to be [URL-encoded](https://en.wikipedia.org/wiki/Percent-encoding). In particular, spaces need to be replaced by `%20`.
 
 ## Rate limiting
 
@@ -223,7 +225,7 @@ https://inspirehep.net/api/literature?sort=mostcited&page=3&q=a E.Witten.1
 
 To go the next page, the `next` URL of the `links` object in the response can be followed (when using the default JSON format).
 
-The number of results per page can be overriden with the `size` query parameter. In order not to overload the server, the maximum allowed value is `500`, and you'll get a response with HTTP status code 400 if you exceed it.
+The number of results per page can be overriden with the `size` query parameter. In order not to overload the server, the maximum allowed value is `1000`, and you'll get a response with HTTP status code 400 if you exceed it.
 
 For example, to get the 50 most cited papers of Edward Witten at once, the following URL can be used:
 ```
@@ -237,3 +239,24 @@ The response for a search is a JSON object with the following keys:
 * `hits`: contains the total number of results in `total` and the records in `hits` (which is an array whose elements have the same structure as in the [single-record response](#single-record-response))
 * `links`: links to related resources, such as alternative serializations of the search results and the next page in `next`.
 
+Note that the record metadata (in `hits.hits.metadata`) contains more fields than in the [single-record response](#single-record response). Most of those are for internal use: **any field not part of the [schema](https://inspire-schemas.readthedocs.io/en/latest/schemas/) should not be relied on, and there is no guarantee that it will remain present or that its content won't change**, with the exception of:
+
+* for `/api/literature`
+
+|key|value (example)|description|
+|---|---|---|
+|`earliest_date`|`2020-03-18`|the earliest date on the record|
+|`citation_count`|243|the total number of citations received by this record|
+|`citation_count_without_self_citations`|213|the number of citations received by this record, excluding [self-citations](https://inspirehep.net/help/knowledge-base/citation-metrics/)|
+
+# API usage in the wild
+
+Several tools in different languages are using this API. Their code might serve as a useful source of real-world examples.
+
+* PHP:
+  + [INSPIREJSON](https://github.com/csanadm/inspirejson)
+* Objective-C:
+  + [spires.app/inspire.app](https://github.com/yujitach/inspire)
+  + [BibDesk](https://sourceforge.net/projects/bibdesk/)
+
+If you would like your project to be listed, don't hesitate to [let us know](#questions---comments).
