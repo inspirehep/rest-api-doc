@@ -2,7 +2,26 @@
 
 This document explains how to access [INSPIRE](https://inspirehep.net) metadata programmatically through a REST API.
 
-## Questions & comments
+- [INSPIRE REST API](#inspire-rest-api)
+  * [Questions & comments](#questions-and-comments)
+  * [API Overview](#api-overview)
+  * [Rate limiting](#rate-limiting)
+  * [Obtaining a record](#obtaining-a-record)
+    + [Internal identifiers](#internal-identifiers)
+    + [External identifiers](#external-identifiers)
+  * [Single-record response](#single-record-response)
+    + [Links](#links)
+    + [Metadata](#metadata)
+  * [Changing formats](#changing-formats)
+  * [Searching](#searching)
+    + [Search query](#search-query)
+    + [Sort order](#sort-order)
+    + [Pagination](#pagination)
+    + [Search response](#search-response)
+  * [API usage in the wild](#api-usage-in-the-wild)
+
+
+## Questions and comments
 
 If you have any issues using the API, would like some help, or have some suggestions for improving the API or its documentation, please open [an issue](https://github.com/inspirehep/rest-api-doc/issues) or [send us an email](mailto:feedback@inspirehep.net).
 
@@ -259,4 +278,4 @@ Several tools in different languages are using this API. Their code might serve 
   + [spires.app/inspire.app](https://github.com/yujitach/inspire)
   + [BibDesk](https://sourceforge.net/projects/bibdesk/)
 
-If you would like your project to be listed, don't hesitate to [let us know](#questions--comments).
+If you would like your project to be listed, don't hesitate to [let us know](#questions-and-comments).
