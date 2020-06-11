@@ -249,7 +249,7 @@ Note that the record metadata (in `hits.hits.metadata`) contains more fields tha
 |`citation_count`|243|the total number of citations received by this record|
 |`citation_count_without_self_citations`|213|the number of citations received by this record, excluding [self-citations](https://inspirehep.net/help/knowledge-base/citation-metrics/)|
 
-# API usage in the wild
+## API usage in the wild
 
 Several tools in different languages are using this API. Their code might serve as a useful source of real-world examples.
 
