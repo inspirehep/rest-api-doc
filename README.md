@@ -274,6 +274,8 @@ Several tools in different languages are using this API. Their code might serve 
 
 * PHP:
   + [INSPIREJSON](https://github.com/csanadm/inspirejson)
+* Python:
+  + [citations.py](https://github.com/efranzin/python/blob/master/citations.py)
 * Objective-C:
   + [spires.app/inspire.app](https://github.com/yujitach/inspire)
   + [BibDesk](https://sourceforge.net/projects/bibdesk/)
