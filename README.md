@@ -104,6 +104,8 @@ By default, the API response when retrieving a single record will be in the JSON
 |`links`|Links to resources related to the record|
 |`metadata`|Metadata of the record|
 
+Whatever identifier is used to retrieve the record, it will also be present (as well as the other identifiers belonging to this record) inside `metadata`.
+
 ### Links
 
 The `links` object contains links to metadata related to this record but not directly included in the record (e.g. citation information), and [alternative serialization formats](#changing-formats) (e.g. BibTeX).
@@ -111,6 +113,8 @@ The `links` object contains links to metadata related to this record but not dir
 ### Metadata
 
 The `metadata` object contains the metadata of the record proper. All records have a `$schema` key, which links to a [JSON schema](https://json-schema.org/understanding-json-schema/index.html) (draft 4) that the record metadata obeys. Detailed documentation about the possible fields for each schema and their meaning can be found in the [schema documentation](https://inspire-schemas.readthedocs.io/en/latest/schemas/).
+
+For example, the `metadata` of `Literature` records conforms to the `hep` schema, whose fields are documented [here](https://inspire-schemas.readthedocs.io/en/latest/schemas/hep.html).
 
 ## Changing formats
 
