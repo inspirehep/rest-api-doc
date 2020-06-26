@@ -262,7 +262,7 @@ The response for a search is a JSON object with the following keys:
 * `hits`: contains the total number of results in `total` and the records in `hits` (which is an array whose elements have the same structure as in the [single-record response](#single-record-response))
 * `links`: links to related resources, such as alternative serializations of the search results and the next page in `next`.
 
-Note that the record metadata (in `hits.hits.metadata`) contains more fields than in the [single-record response](#single-record response). Most of those are for internal use: **any field not part of the [schema](https://inspire-schemas.readthedocs.io/en/latest/schemas/) should not be relied on, and there is no guarantee that it will remain present or that its content won't change**, with the exception of:
+Note that the record metadata (in `hits.hits.metadata`) contains more fields than in the [single-record response](#single-record-response). Most of those are for internal use: **any field not part of the [schema](https://inspire-schemas.readthedocs.io/en/latest/schemas/) should not be relied on, and there is no guarantee that it will remain present or that its content won't change**, with the exception of:
 
 * for `/api/literature`
 
