@@ -4,6 +4,7 @@ This document explains how to access [INSPIRE](https://inspirehep.net) metadata 
 
 - [INSPIRE REST API](#inspire-rest-api)
   * [Questions & comments](#questions-and-comments)
+  * [Terms of use](#terms-of-use)
   * [API Overview](#api-overview)
   * [Rate limiting](#rate-limiting)
   * [Obtaining a record](#obtaining-a-record)
@@ -24,6 +25,10 @@ This document explains how to access [INSPIRE](https://inspirehep.net) metadata 
 ## Questions and comments
 
 If you have any issues using the API, would like some help, or have some suggestions for improving the API or its documentation, please open [an issue](https://github.com/inspirehep/rest-api-doc/issues) or [send us an email](mailto:feedback@inspirehep.net).
+
+## Terms of use
+
+Usage of the API is governed by our [terms of use](https://inspirehep.net/help/knowledge-base/terms-of-use/). As explained there in more detail, most of the metadata is available under a [CC0 license](https://creativecommons.org/publicdomain/zero/1.0/), but restrictions apply to some fields, and bulk collection of email addresses is not allowed.
 
 ## API Overview
 
