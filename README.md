@@ -19,6 +19,7 @@ This document explains how to access [INSPIRE](https://inspirehep.net) metadata 
     + [Sort order](#sort-order)
     + [Pagination](#pagination)
     + [Search response](#search-response)
+    + [Metadata filtering](#metadata-filtering)
   * [API usage in the wild](#api-usage-in-the-wild)
 
 
@@ -177,6 +178,7 @@ The `{query-string}` may contain several `{parameter}={value}` pairs separated b
 |`sort`|The sort order|
 |`size`|The number of results returned per page|
 |`page`|The page number|
+|`fields`|The fields in the metadata to be returned|
 
 Additionally, depending on the `{record-type}`, different facet filters are available to restrict the set of results. They work exactly the same way as on the website.
 
@@ -276,6 +278,17 @@ Note that the record metadata (in `hits.hits.metadata`) contains more fields tha
 |`earliest_date`|`2020-03-18`|the earliest date on the record|
 |`citation_count`|243|the total number of citations received by this record|
 |`citation_count_without_self_citations`|213|the number of citations received by this record, excluding [self-citations](https://inspirehep.net/help/knowledge-base/citation-metrics/)|
+
+### Metadata filtering
+
+Sometimes, you might be interested in only some specific fields of the record metadata and not in the whole record. To avoid generating and downloading the full response, which can be quite large, the `fields` query parameter can be used. It should be set to a comma-separated list of fields that need to be present in the record metadata.
+
+For example, the following URL will return only the titles, author names and links to affiliation records of papers with more than 1000 citations:
+```
+https://inspirehep.net/literature?fields=titles,authors.full_name,authors.affiliations.record&q=topcite 1000+
+```
+
+Note that it is not possible to put limits on the number of elements of an array, but only select whether that array should appear at all. For example, it's not possible to select only the first 10 authors, but it's possible to avoid returning authors by not putting `authors` (or any of its subfields) among the `fields`.
 
 ## API usage in the wild
 
