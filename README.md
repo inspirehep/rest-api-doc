@@ -299,6 +299,7 @@ Several tools in different languages are using this API. Their code might serve 
 * Python:
   + [citations.py](https://github.com/efranzin/python/blob/master/citations.py)
   + [ads2inspire](https://github.com/duetosymmetry/ads2inspire)
+  + [coauthors](https://bitbucket.org/dradice/coauthors/src/master/)
 * Objective-C:
   + [spires.app/inspire.app](https://github.com/yujitach/inspire)
   + [BibDesk](https://sourceforge.net/projects/bibdesk/)
