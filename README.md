@@ -285,7 +285,7 @@ Sometimes, you might be interested in only some specific fields of the record me
 
 For example, the following URL will return only the titles, author names and links to affiliation records of papers with more than 1000 citations:
 ```
-https://inspirehep.net/literature?fields=titles,authors.full_name,authors.affiliations.record&q=topcite 1000+
+https://inspirehep.net/api/literature?fields=titles,authors.full_name,authors.affiliations.record&q=topcite 1000+
 ```
 
 Note that it is not possible to put limits on the number of elements of an array, but only select whether that array should appear at all. For example, it's not possible to select only the first 10 authors, but it's possible to avoid returning authors by not putting `authors` (or any of its subfields) among the `fields`.
