@@ -210,6 +210,17 @@ https://inspirehep.net/api/literature?q=tc conference paper and refersto a E.Wit
 https://inspirehep.net/api/literature?q=dois.value:*
 ```
 
+* For Author records (obtained through the `/api/author` endpoint), any field of the record metadata can be searched using its path given by concatenating the nested keys with `.`, followed by a `:` and the value to search for.
+
+  For example to find an author using their INSPIRE-ID, you can use:
+```
+https://inspirehep.net/api/authors?q=ids.value:INSPIRE-NNNNNNN
+```
+  Similarly searching for a given ORCID:
+```
+https://inspirehep.net/api/authors?q=ids.value:NNNN-NNNN-NNNN-NNNN
+```
+
 * For other types of records, the [ElasticSearch query string](https://www.elastic.co/guide/en/elasticsearch/reference/7.1/query-dsl-query-string-query.html#query-string-syntax) syntax is used.
 
   For example, to find all experiments using the CERN Proton-Synchotron (PS) accelerator, use
