@@ -98,6 +98,12 @@ The following external identifiers can be used:
 |`arxiv`|`1207.7214`, `hep-ph/0603175`|to get a literature record given an [arXiv](https://arxiv.org) identifier|
 |`orcid`|`0000-0003-3897-046X`|to get an author record given an [ORCID](https://orcid.org) iD|
 
+For example, 
+```
+https://inspirehep.net/api/orcid/0000-0002-9079-593X
+```
+is Stephen Hawkings's author record.
+
 ## Single-record response
 
 By default, the API response when retrieving a single record will be in the JSON format and contain the following keys:
@@ -210,11 +216,15 @@ https://inspirehep.net/api/literature?q=tc conference paper and refersto a E.Wit
 https://inspirehep.net/api/literature?q=dois.value:*
 ```
 
-* For other types of records, the [ElasticSearch query string](https://www.elastic.co/guide/en/elasticsearch/reference/7.1/query-dsl-query-string-query.html#query-string-syntax) syntax is used.
+* For other types of records, the [ElasticSearch query string](https://www.elastic.co/guide/en/elasticsearch/reference/7.1/query-dsl-query-string-query.html#query-string-syntax) syntax is used. Here too, any field of the record metadata can be searched using its path given by concatenating the nested keys with `.`, followed by a `:` and the value to search for.
 
   For example, to find all experiments using the CERN Proton-Synchotron (PS) accelerator, use
 ```
 https://inspirehep.net/api/experiments?q=accelerator.value:PS
+```
+  Similarly, to find an author with a given INSPIRE ID, use
+```
+https://inspirehep.net/api/authors?q=ids.value:INSPIRE-00140145
 ```
 
 ### Sort order
