@@ -298,6 +298,13 @@ For example, the following URL will return only the titles, author names and lin
 https://inspirehep.net/api/literature?fields=titles,authors.full_name,authors.affiliations.record&q=topcite 1000+
 ```
 
+Metadata filtering is only available in searches, not for the [single record response](#single-record-response). However, if you know an identifier of the record you want to get partial metadata for, you can perform a search for that identifier, which will return only one record.
+
+For example, the following URL will give you the citation count of the record at https://inspirehep.net/api/literature/4328:
+```
+https://inspirehep.net/api/literature?fields=citation_count&q=recid:4328
+```
+
 Note that it is not possible to put limits on the number of elements of an array, but only select whether that array should appear at all. For example, it's not possible to select only the first 10 authors, but it's possible to avoid returning authors by not putting `authors` (or any of its subfields) among the `fields`.
 
 ## API usage in the wild
