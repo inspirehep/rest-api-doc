@@ -52,7 +52,7 @@ Note that all examples are displayed in a human-readable way, but the query para
 
 ## Rate limiting
 
-In order to avoid overwhelming the server, we enforce rate limits per IP address: every IP address is allowed 50 requests, then at most 2 requests per second. If you exceed those limits, you will receive a response with HTTP status code 429 and a `x-retry-in` header telling you how long to wait before retrying.
+In order to avoid overwhelming the server, we enforce rate limits per IP address: every IP address is allowed 15 requests in a 5s window. If you exceed those limits, you will receive a response with HTTP status code 429. Please note that requests that are blocked due to exceeding the rate limit count towards the quota, so you'll need to wait at least 5s when receiving a 429 response before trying again.
 
 ## Obtaining a record
 
