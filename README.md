@@ -1,6 +1,8 @@
 # INSPIRE REST API
 
-This document explains how to access [INSPIRE](https://inspirehep.net) metadata programmatically through a REST API.
+[INSPIRE](https://inspirehep.net) is a trusted community hub that helps researchers to share and find accurate scholarly information in high energy physics.
+In addition to a regular web interface for interactive access to its content, a REST API is provided for programmatic access.
+The present document explains how to use this REST API.
 
 - [INSPIRE REST API](#inspire-rest-api)
   * [Questions & comments](#questions-and-comments)

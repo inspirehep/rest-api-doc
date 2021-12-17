@@ -1,0 +1,16 @@
+abstract: |
+  INSPIRE <https://inspirehep.net> is a trusted community hub that helps researchers to share and find accurate scholarly information in high energy physics.
+  In addition to a regular web interface for interactive access to its content, a REST API is provided for programmatic access.
+  The present document explains how to use this REST API.
+authors:
+  - given-names: Micha
+    family-names: Moskovic
+    orcid: https://orcid.org/0000-0002-7638-5686
+    affiliation: CERN
+cff-version: 1.2.0
+license: CC-BY-4.0
+message: "If you use this software, please cite it using these metadata."
+repository-code: "https://github.com/inspirehep/rest-api-doc"
+title: "The INSPIRE REST API"
+url: https://inspirehep.net
+version: "2021.0"
