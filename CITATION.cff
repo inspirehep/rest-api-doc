@@ -14,4 +14,4 @@ message: "If you use this software, please cite it using these metadata."
 repository-code: "https://github.com/inspirehep/rest-api-doc"
 title: "The INSPIRE REST API"
 url: https://inspirehep.net
-version: "2021.0"
+version: "2021.1"
