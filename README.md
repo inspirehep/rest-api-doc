@@ -103,7 +103,7 @@ The following external identifiers can be used:
 |`arxiv`|`1207.7214`, `hep-ph/0603175`|to get a literature record given an [arXiv](https://arxiv.org) identifier|
 |`orcid`|`0000-0003-3897-046X`|to get an author record given an [ORCID](https://orcid.org) iD|
 
-For example, 
+For example,
 ```
 https://inspirehep.net/api/orcid/0000-0002-9079-593X
 ```
@@ -276,6 +276,8 @@ For example, to get the 50 most cited papers of Edward Witten at once, the follo
 ```
 https://inspirehep.net/api/literature?sort=mostcited&size=50&q=a E.Witten.1
 ```
+
+Note that, in addition to the limit of results returned per page, there is currently a technical limitation preventing the retrieval of more than 10000 results for a given search query. The workaround is to break up the single search into several searches having less than 10000 results each. See [this comment](https://github.com/inspirehep/rest-api-doc/issues/20#issuecomment-997932079) for more information.
 
 ### Search response
 
