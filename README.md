@@ -1,11 +1,21 @@
 # INSPIRE REST API
 
-[![DOI](https://zenodo.org/badge/269110099.svg)](https://zenodo.org/badge/latestdoi/269110099)
-
 
 [INSPIRE](https://inspirehep.net) is a trusted community hub that helps researchers to share and find accurate scholarly information in high energy physics.
 In addition to a regular web interface for interactive access to its content, a REST API is provided for programmatic access.
 The present document explains how to use this REST API.
+
+If you use the API in a scholarly work, please cite it using the following metadata:
+```bibtex
+@article{Moskovic:2021zjs,
+    author = "Moskovic, Micha",
+    title = "{The INSPIRE REST API}",
+    url = "https://github.com/inspirehep/rest-api-doc",
+    doi = "10.5281/zenodo.5788550",
+    month = "12",
+    year = "2021"
+}
+```
 
 - [INSPIRE REST API](#inspire-rest-api)
   * [Questions & comments](#questions-and-comments)
