@@ -183,6 +183,7 @@ The `{record-type}` must be one of:
 
 * `literature`
 * `authors`
+* `institutions`
 * `conferences`
 * `seminars`
 * `journals`
