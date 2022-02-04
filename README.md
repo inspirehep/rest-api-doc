@@ -338,5 +338,7 @@ Several tools in different languages are using this API. Their code might serve 
 * Objective-C:
   + [spires.app/inspire.app](https://github.com/yujitach/inspire)
   + [BibDesk](https://sourceforge.net/projects/bibdesk/)
+* Emacs Lisp:
+  + [inspirehep.el](https://github.com/aikrahguzar/inspirehep.el)
 
 If you would like your project to be listed, don't hesitate to [let us know](#questions-and-comments).
