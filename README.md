@@ -85,6 +85,7 @@ These are the same identifiers as appear in the URLs on the website and can also
 
 * `literature`
 * `authors`
+* `institutions`
 * `conferences`
 * `seminars`
 * `journals`
@@ -183,6 +184,7 @@ The `{record-type}` must be one of:
 
 * `literature`
 * `authors`
+* `institutions`
 * `conferences`
 * `seminars`
 * `journals`
