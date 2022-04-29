@@ -35,6 +35,7 @@ If you use the API in a scholarly work, please cite it using the following metad
     + [Pagination](#pagination)
     + [Search response](#search-response)
     + [Metadata filtering](#metadata-filtering)
+  * [Bibliography generator](#bibliography-generator)
   * [API usage in the wild](#api-usage-in-the-wild)
 
 
@@ -61,7 +62,7 @@ is available through the API at
 https://inspirehep.net/api/literature?sort=mostrecent&size=25&page=1&q=title api
 ```
 
-Currently only read-only operations are allowed and they all use the `GET` HTTP method.
+Currently only read-only operations on records are allowed and they all use the `GET` HTTP method.
 
 Note that all examples are displayed in a human-readable way, but the query parameters often need to be [URL-encoded](https://en.wikipedia.org/wiki/Percent-encoding). In particular, spaces need to be replaced by `%20`.
 
@@ -323,6 +324,24 @@ https://inspirehep.net/api/literature?fields=citation_count&q=recid:4328
 ```
 
 Note that it is not possible to put limits on the number of elements of an array, but only select whether that array should appear at all. For example, it's not possible to select only the first 10 authors, but it's possible to avoid returning authors by not putting `authors` (or any of its subfields) among the `fields`.
+
+## Bibliography generator
+
+In addition to the bibliographic databases, INSPIRE offers a tool to generate a bibliography from a TeX file containing `\cite{...}` commands (or variants) with keys that respect a specific convention that allows the system to infer the cited record. More detailed instructions are available in the [interactive tool](https://inspirehep.net/bibliography-generator).
+
+To access it through the API, you need to make a POST request to the endpoint at `https://inspirehep.net/api/bibliography-generator`, with the following data:
+
+* a `format` request argument whose value is either `bibtex`, `latex_eu` or `latex_us` depending on the required bibliographic format
+* a form-encoded body with a single `file` key containing the form-encoded file as an argument.
+
+The response will be a JSON object with a single `data` key whose value is an object containing the URL to the generated bibliography file under `download_url` and an array of encountered errors under `errors` (which is empty if there are no errors in the process).
+
+For example with `curl`:
+```
+curl -XPOST -F "file=@/path/to/my/texfile.tex" "https://inspirehep.net/api/bibliography-generator?format=bibtex"
+```
+
+When using the popular Python `requests` package, this can be done as explained in its [documentation](https://docs.python-requests.org/en/latest/user/quickstart/#post-a-multipart-encoded-file).
 
 ## API usage in the wild
 
