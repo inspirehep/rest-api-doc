@@ -359,6 +359,8 @@ Several tools in different languages are using this API. Their code might serve 
 * Objective-C:
   + [spires.app/inspire.app](https://github.com/yujitach/inspire)
   + [BibDesk](https://sourceforge.net/projects/bibdesk/)
+* Javascript:
+  + [Zotero INSPIRE metadata updater](https://github.com/fkguo/zotero-inspire)
 * Emacs Lisp:
   + [inspirehep.el](https://github.com/aikrahguzar/inspirehep.el)
 
