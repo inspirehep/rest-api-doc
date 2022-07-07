@@ -160,6 +160,7 @@ Currently, the following formats are supported (only for `Literature` records):
 |bibtex|application/x-bibtex|The [BibTeX](https://en.wikipedia.org/wiki/BibTeX) citation format|
 |latex-eu|application/vnd+inspire.latex.eu+x-latex|The LaTeX (EU) citation format|
 |latex-us|application/vnd+inspire.latex.us+x-latex|The LaTeX (US) citation format|
+|cv|text/vnd+inspire.html+html|The CV HTML citation format|
 
 Links to alternative formats can also be found in the `links` object inside the JSON response.
 
