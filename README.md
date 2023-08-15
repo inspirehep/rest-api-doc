@@ -357,6 +357,8 @@ Several tools in different languages are using this API. Their code might serve 
   + [ads2inspire](https://github.com/duetosymmetry/ads2inspire)
   + [coauthors](https://bitbucket.org/dradice/coauthors/src/master/)
   + [track_inspire-hep_citations](https://github.com/motloch/track_inspire-hep_citations)
+* Perl:
+  + [InSpireJSON](https://github.com/KNAnagnostop/InSpireJSON)
 * Objective-C:
   + [spires.app/inspire.app](https://github.com/yujitach/inspire)
   + [BibDesk](https://sourceforge.net/projects/bibdesk/)
