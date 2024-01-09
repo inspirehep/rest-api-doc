@@ -41,7 +41,7 @@ If you use the API in a scholarly work, please cite it using the following metad
 
 ## Questions and comments
 
-If you have any issues using the API, would like some help, or have some suggestions for improving the API or its documentation, please open [an issue](https://github.com/inspirehep/rest-api-doc/issues) or [send us an email](mailto:feedback@inspirehep.net).
+If you have any issues using the API, would like some help, or have some suggestions for improving the API or its documentation, please open [an issue](https://github.com/inspirehep/rest-api-doc/issues) or [contact us](https://help.inspirehep.net/knowledge-base/contact-us/).
 
 ## Terms of use
 
@@ -357,6 +357,7 @@ Several tools in different languages are using this API. Their code might serve 
   + [ads2inspire](https://github.com/duetosymmetry/ads2inspire)
   + [coauthors](https://bitbucket.org/dradice/coauthors/src/master/)
   + [track_inspire-hep_citations](https://github.com/motloch/track_inspire-hep_citations)
+  + [inspire](https://github.com/aykhuss/inspire)
 * Perl:
   + [InSpireJSON](https://github.com/KNAnagnostop/InSpireJSON)
 * Objective-C:
