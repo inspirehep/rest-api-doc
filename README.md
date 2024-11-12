@@ -358,6 +358,7 @@ Several tools in different languages are using this API. Their code might serve 
   + [coauthors](https://bitbucket.org/dradice/coauthors/src/master/)
   + [track_inspire-hep_citations](https://github.com/motloch/track_inspire-hep_citations)
   + [inspire](https://github.com/aykhuss/inspire)
+  + [InspirehepCitationsTracker](https://github.com/PMGLuz/InspirehepCitationsTracker)
 * Perl:
   + [InSpireJSON](https://github.com/KNAnagnostop/InSpireJSON)
 * Objective-C:
