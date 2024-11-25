@@ -370,5 +370,7 @@ Several tools in different languages are using this API. Their code might serve 
   + [Raycast INSPIRE HEP Search extension](https://www.raycast.com/rpenco/inspire-search)
 * Emacs Lisp:
   + [inspirehep.el](https://github.com/aikrahguzar/inspirehep.el)
+* Rust:
+  + [pneo](https://gitlab.com/_rvidal/pneo)
 
 If you would like your project to be listed, don't hesitate to [let us know](#questions-and-comments).
