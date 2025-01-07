@@ -372,5 +372,6 @@ Several tools in different languages are using this API. Their code might serve 
   + [inspirehep.el](https://github.com/aikrahguzar/inspirehep.el)
 * Rust:
   + [pneo](https://gitlab.com/_rvidal/pneo)
+  + [inspire_hep_rss](https://github.com/APN-Pucky/inspire_hep_rss)
 
 If you would like your project to be listed, don't hesitate to [let us know](#questions-and-comments).
