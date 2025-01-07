@@ -141,7 +141,7 @@ The `links` object contains links to metadata related to this record but not dir
 
 ### Metadata
 
-The `metadata` object contains the metadata of the record proper. All records have a `$schema` key, which links to a [JSON schema](https://json-schema.org/understanding-json-schema/index.html) (draft 4) that the record metadata obeys. Detailed documentation about the possible fields for each schema and their meaning can be found in the [schema documentation](https://inspire-schemas.readthedocs.io/en/latest/schemas/).
+The `metadata` object contains the metadata of the record proper. All records have a `$schema` key, which links to a [JSON schema](https://json-schema.org/overview/what-is-jsonschema) (draft 4) that the record metadata obeys. Detailed documentation about the possible fields for each schema and their meaning can be found in the [schema documentation](https://inspire-schemas.readthedocs.io/en/latest/schemas/).
 
 For example, the `metadata` of `Literature` records conforms to the `hep` schema, whose fields are documented [here](https://inspire-schemas.readthedocs.io/en/latest/schemas/hep.html).
 
@@ -355,7 +355,7 @@ Several tools in different languages are using this API. Their code might serve 
 * Python:
   + [citations.py](https://github.com/efranzin/python/blob/master/citations.py)
   + [ads2inspire](https://github.com/duetosymmetry/ads2inspire)
-  + [coauthors](https://bitbucket.org/dradice/coauthors/src/master/)
+  + [coauthors](https://github.com/dradice/coauthors)
   + [track_inspire-hep_citations](https://github.com/motloch/track_inspire-hep_citations)
   + [inspire](https://github.com/aykhuss/inspire)
   + [InspirehepCitationsTracker](https://github.com/PMGLuz/InspirehepCitationsTracker)
