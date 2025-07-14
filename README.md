@@ -157,6 +157,7 @@ Currently, the following formats are supported (only for `Literature` records):
 |`{format-name}`|MIME type|Description|
 |---|---|---|
 |json|application/json|The default JSON format|
+|json-expanded|application/vnd+inspire.record.expanded+json|JSON format, with extra ROR and ORCID identifiers inlined from linked records|
 |bibtex|application/x-bibtex|The [BibTeX](https://en.wikipedia.org/wiki/BibTeX) citation format|
 |latex-eu|application/vnd+inspire.latex.eu+x-latex|The LaTeX (EU) citation format|
 |latex-us|application/vnd+inspire.latex.us+x-latex|The LaTeX (US) citation format|
